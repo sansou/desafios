@@ -7,12 +7,12 @@ import org.springframework.stereotype.Service;
 
 import com.example.desafios.desafios.dto.CustomerDto;
 import com.example.desafios.desafios.dto.LoanDto;
-import com.example.desafios.desafios.dto.ReturnDto;
+import com.example.desafios.desafios.dto.ReturnLoanDto;
 
 @Service
 public class CustomerLoanService {
 
-  public ReturnDto customerLoans(CustomerDto customerDto) {
+  public ReturnLoanDto customerLoans(CustomerDto customerDto) {
     List<LoanDto> loans = new ArrayList<>();
 
     if (customerDto.income() <= 3000) {
@@ -26,7 +26,7 @@ public class CustomerLoanService {
       loans.add(new LoanDto("GUARANTEED", 3));
     }
 
-    return new ReturnDto(customerDto.name(), loans);
+    return new ReturnLoanDto(customerDto.name(), loans);
     
   }
 }
