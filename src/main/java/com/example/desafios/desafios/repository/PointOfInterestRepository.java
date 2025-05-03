@@ -8,7 +8,6 @@ public interface PointOfInterestRepository extends MongoRepository<PointOfIntere
     // Custom query methods can be defined here if needed
     // For example, find by name or coordinates
     PointOfInterest findByName(String name);
-    PointOfInterest findByxAxisAndyAxis(Integer xAxis, Integer yAxis);
 
 
 }

@@ -10,10 +10,10 @@ import org.springframework.data.mongodb.core.mapping.MongoId;
 @Document(collection = "pointOfInterest")
 public class PointOfInterest {
   @MongoId
-  private Long id;
-
+  private String id;
+  
   private String name;
-
+  
   @Indexed(name = "xAxis_index")
   @Field(targetType = FieldType.INT32)
   private Integer xAxis;
@@ -21,22 +21,22 @@ public class PointOfInterest {
   @Indexed(name = "yAxis_index")
   @Field(targetType = FieldType.INT32)
   private Integer yAxis;
-
-  public PointOfInterest(Long id, String name, Integer xAxis, Integer yAxis) {
+  
+  public PointOfInterest(String id, String name, Integer xAxis, Integer yAxis) {
     this.id = id;
     this.name = name;
     this.xAxis = xAxis;
     this.yAxis = yAxis;
   }
-
+  
   public PointOfInterest() {
   }
-
-  public Long getId() {
+  
+  public String getId() {
     return id;
   }
 
-  public void setId(Long id) {
+  public void setId(String id) {
     this.id = id;
   }
 
