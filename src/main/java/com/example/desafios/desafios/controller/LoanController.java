@@ -14,7 +14,7 @@ import com.example.desafios.desafios.service.CustomerLoanService;
 @RequestMapping("/customer-loans")
 public class LoanController {
 
-  private static CustomerLoanService customerLoanService;
+  private final CustomerLoanService customerLoanService;
 
   LoanController(CustomerLoanService customerLoanService) {
     this.customerLoanService = customerLoanService;
