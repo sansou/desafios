@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.desafios.desafios.dto.CustomerDto;
-import com.example.desafios.desafios.dto.ReturnDto;
+import com.example.desafios.desafios.dto.ReturnLoanDto;
 import com.example.desafios.desafios.service.CustomerLoanService;
 
 @RestController
@@ -21,7 +21,7 @@ public class LoanController {
   }
 
   @PostMapping()
-  public ResponseEntity<ReturnDto> customerLoans(
+  public ResponseEntity<ReturnLoanDto> customerLoans(
       @RequestBody CustomerDto requestBody) {
       
       var returnDto = customerLoanService.customerLoans(requestBody);
