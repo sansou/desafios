@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.desafios.desafios.dto.PointOfInterestEvent;
+import com.example.desafios.desafios.dto.PointOfInterestRange;
 import com.example.desafios.desafios.service.PointOfInterestService;
 
 @RestController
@@ -37,16 +38,26 @@ public class PointOfInterestController {
     return ResponseEntity.created(null).body(null);
   }
 
-  @GetMapping("/all")
+  @GetMapping("/list")
   public ResponseEntity<List<PointOfInterestEvent>> getAllPointsOfInterest() {
     // Call the service method to get all points of interest
     var pointsOfInterest = pointOfInterestService.getAllPointsOfInterest();
     return ResponseEntity.ok(pointsOfInterest);
   }
 
+  @PostMapping("/near")
+  public ResponseEntity<?> getPointOfInterestByName(@RequestBody PointOfInterestRange range) {
+    var returned = pointOfInterestService.listNearPois(range);
+    System.out.println(returned);
+
+    return ResponseEntity.ok().body(returned);
+  }
+
   @GetMapping("/{name}")
   public ResponseEntity<String> getPointOfInterestByName(@PathVariable String name) {
-    return ResponseEntity.ok(name);
+    // Call the service method to get a point of interest by name
+    // var pointOfInterest = pointOfInterestService.getPointOfInterestByName(name);
+    return ResponseEntity.ok().body(name);
   }
 
 }
