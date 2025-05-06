@@ -4,7 +4,7 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 
 import com.example.desafios.desafios.entity.PointOfInterest;
 
-public interface PointOfInterestRepository extends MongoRepository<PointOfInterest, Long> {
+public interface PointOfInterestRepository extends MongoRepository<PointOfInterest, String> {
     // Custom query methods can be defined here if needed
     // For example, find by name or coordinates
     PointOfInterest findByName(String name);
