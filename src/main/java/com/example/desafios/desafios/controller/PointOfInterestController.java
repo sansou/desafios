@@ -27,11 +27,8 @@ public class PointOfInterestController {
   @PostMapping()
   public ResponseEntity<?> addPointOfInterest(
       @RequestBody PointOfInterestEvent pointOfInterestCreatedEvent) {
-    // Call the service method to add a point of interest
     var erros = pointOfInterestService.save(pointOfInterestCreatedEvent);
-    // TODO: capturar os erros e retornar o erro correto para o cliente
     if (erros != null && erros.hasErrors()) {
-      System.out.println(erros.getFieldErrors());
       return ResponseEntity.badRequest().body(erros.getFieldErrors());
     }
 
@@ -40,7 +37,6 @@ public class PointOfInterestController {
 
   @GetMapping("/list")
   public ResponseEntity<List<PointOfInterestEvent>> getAllPointsOfInterest() {
-    // Call the service method to get all points of interest
     var pointsOfInterest = pointOfInterestService.getAllPointsOfInterest();
     return ResponseEntity.ok(pointsOfInterest);
   }

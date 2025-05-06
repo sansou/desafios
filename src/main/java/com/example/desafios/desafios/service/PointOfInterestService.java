@@ -28,7 +28,9 @@ public class PointOfInterestService {
     PointOfInterest poi = mapToEntity(poiEvent);
     Errors erros = new BeanPropertyBindingResult(poi, "Point Of Interest") ;
     pointOfInterestValidation.validate(poi, erros);
-    pointOfInterestRepository.save(poi);
+    if (!erros.hasErrors()) {
+      pointOfInterestRepository.save(poi);      
+    }
     return erros;
   }
 
