@@ -1,4 +1,4 @@
-package com.example.desafios.desafios.filter;
+package com.example.desafios.utils.filter;
 
 import java.io.IOException;
 

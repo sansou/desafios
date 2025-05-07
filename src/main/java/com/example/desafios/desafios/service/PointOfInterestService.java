@@ -62,8 +62,8 @@ public class PointOfInterestService {
 
   private boolean isWithinRange(PointOfInterest poi, PointOfInterestRange poiRange) {
 
-    double xDiff = Math.pow((poi.getxAxis() - poiRange.xAxis()), 2);
-    double yDiff = Math.pow((poi.getyAxis() - poiRange.yAxis()), 2);
+    Double xDiff = Math.pow((poi.getxAxis() - poiRange.xAxis()), 2);
+    Double yDiff = Math.pow((poi.getyAxis() - poiRange.yAxis()), 2);
 
     Double distance = Math.sqrt(xDiff + yDiff);
     return distance <= poiRange.range();
